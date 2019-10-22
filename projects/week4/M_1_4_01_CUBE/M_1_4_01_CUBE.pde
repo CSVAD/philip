@@ -43,7 +43,7 @@ import java.util.Calendar;
 import controlP5.*;
 ControlP5 cp5;
 
-Controller zNoiseModSlider;
+Controller noiseModSlider;
 Controller noiseXRangeSlider;
 Controller noiseYRangeSlider;
 Controller maxLayersSlider;
@@ -56,12 +56,12 @@ Controller cubeSizeSlider;
 int cubeUnits = 10;
 int cubeSize = 28;
 int tileCount = 50;
-int zScale = 250;
+int zScale = 100;
 int maxLayers = 50;
 int layerDensity = 10;
 
 // ------ noise ------
-float zNoiseMod = 0.025;
+float noiseMod = 50.0;
 float noiseXRange = 0.5;
 float noiseYRange = 0.5;
 int octaves = 4;
@@ -83,8 +83,8 @@ boolean showStroke = false;
 
 
 void setup() {
-  fullScreen(P3D);
-  //size(800, 800, P3D);
+  //fullScreen(P3D);
+  size(800, 800, P3D);
   colorMode(HSB, 360, 100, 100);
   cp5 = new ControlP5(this);
   tiler = new TileSaver(this);
@@ -109,33 +109,18 @@ void setup() {
     .setRange(0.0, 4.0)
     .setColorLabel(0)
     ;
-  zNoiseModSlider =  cp5.addSlider("zNoiseMod")
+  noiseModSlider =  cp5.addSlider("noiseMod")
     .setPosition(25, 3*25)
-    .setRange(0.0, 0.15)
+    .setRange(0.0, 300.0)
     .setColorLabel(0)
     ;
-  maxLayersSlider =  cp5.addSlider("maxLayers")
+  cubeUnitsSlider =  cp5.addSlider("cubeUnits")
     .setPosition(25, 4*25)
     .setRange(5, 100)
     .setColorLabel(0)
     ;
-  layerDensitySlider =  cp5.addSlider("layerDensity")
-    .setPosition(25, 5*25)
-    .setRange(1, 100)
-    .setColorLabel(0)
-    ;
-  tileCountSlider =  cp5.addSlider("tileCount")
-    .setPosition(25, 6*25)
-    .setRange(9, 100)
-    .setColorLabel(0)
-    ;
-  cubeUnitsSlider =  cp5.addSlider("cubeUnits")
-    .setPosition(25, 7*25)
-    .setRange(5, 100)
-    .setColorLabel(0)
-    ;
   cubeSizeSlider =  cp5.addSlider("cubeSize")
-    .setPosition(25, 8*25)
+    .setPosition(25, 5*25)
     .setRange(5, 100)
     .setColorLabel(0)
     ;
@@ -185,7 +170,7 @@ void draw() {
 
   popMatrix();
 
-  tiler.post();
+  tiler.post();  
 }
 
 void drawCube(int units, float size){
@@ -231,11 +216,11 @@ void drawSheet(int cols, int rows, float w, float h){
       float z1 = noise(noiseX, noiseY);//, noiseZ);
       float z2 = noise(noiseX, noiseY+noiseStepY);//, noiseZ);
       
-      //vertex(meshX*w, meshY*h);//, + z1*zScale);
-      //vertex(meshX*w, meshY*h + h);//, + z2*zScale); 
+      vertex(meshX*w, meshY*h, z1*noiseMod);//, + z1*zScale);
+      vertex(meshX*w, meshY*h + h, z1*noiseMod);//, + z2*zScale); 
       
-      vertex(x, y, + z1);
-      vertex(x, y + tileSizeY, + z2); 
+      //vertex(x, y, + z1);
+      //vertex(x, y + tileSizeY, + z2); 
     }
     endShape();
   }
