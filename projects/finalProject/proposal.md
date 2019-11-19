@@ -7,6 +7,11 @@ come to life!
 
 As a youngster, I was fond of creating animated stick-figure GIFS using Microsoft paint as my main drawing tool. My plan is to return to this practice both for myself and in collaboration with an illustrator/painter who is interested in animation.
 
+"I like drawing and have wanted to try animation, but have felt
+overwhelmed an intimidated by the prospect of jumping into new tools.
+I'm looking forward to a fun and easy-to-use animation tool." -
+illustrator/painter partner
+
 ## Features
 
 * Quickly doodle some noodles, flip to the next frame and see the previous sketch as a semi-transparent reference layer (onion-skin).
@@ -29,6 +34,6 @@ As a youngster, I was fond of creating animated stick-figure GIFS using Microsof
 
 ## Strategies for evaluation
 
-* I want to facilitate an "aha" moment for users that don't have an animation practice. If newcomers to animation have a hard time getting started, then that is a orange flag.
+* I want to facilitate an "aha" moment for users that don't have an animation practice. If newcomers to animation have a hard time getting started, then that is an orange flag.
 
 * Another goal for the project is for users such as myself and my collaborator to create more substantial works, supported by features such as undo/redo, saving/loading
