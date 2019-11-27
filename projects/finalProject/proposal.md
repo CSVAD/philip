@@ -19,6 +19,8 @@ illustrator/painter partner
 * Use the webcam to bring in an image to draw over.
 * Apply vertex filters to bring additional movement to your doodles.
 
+* BONUS: export to grid of frames for plotting
+
 ## Implementation challenges
 
 * creating and storing animation frames
@@ -37,3 +39,5 @@ illustrator/painter partner
 * I want to facilitate an "aha" moment for users that don't have an animation practice. If newcomers to animation have a hard time getting started, then that is an orange flag.
 
 * Another goal for the project is for users such as myself and my collaborator to create more substantial works, supported by features such as undo/redo, saving/loading
+
+*
