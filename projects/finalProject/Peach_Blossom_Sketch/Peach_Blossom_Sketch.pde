@@ -329,7 +329,7 @@ void renderWireframes() {
 
 void keyPressed() {
   if(key == 'e'){
-    drawingFramesManager.savePDF();
+    exportToPDF();
   }
 
   if(key == 'c'){
@@ -474,7 +474,7 @@ public void removeLastStroke() {
 }
 
 public void exportToPDF() {
-  drawingFramesManager.savePDF();
+  drawingFramesManager.savePDF("Peach_Blossom_Sketch");
 }
 
 public void reset() {
