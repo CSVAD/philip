@@ -4,9 +4,6 @@ import processing.pdf.*;
 DrawingFramesManager drawingFramesManager;
 DShape shape;
 boolean playLoop = false;
-boolean boomerangMode = false;
-boolean playForward = true;
-boolean validDrawingStrokeActive = false;
 
 void setup() {
   size(700, 700 ,P3D);
@@ -21,9 +18,10 @@ void draw() {
   background(255, 240, 230);
 
   if(playLoop) {
+    // if playing, advance the frame
     drawingFramesManager.nextFrame();
   } else {
-    // not playing, so render the onion skinning
+    // if not playing, so render the onion skinning
     int prevIndex = drawingFramesManager.currentFrameIndex - 1;
     if(prevIndex < 0) {
       prevIndex = drawingFramesManager.frames.size() - 1;
@@ -35,6 +33,7 @@ void draw() {
     
     stroke(0);
     strokeWeight(3);
+    // render current frame
     drawingFramesManager.renderCurrentFrame();
 }
 
